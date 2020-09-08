@@ -1,0 +1,41 @@
+@import "./../../assets/styles/variables";
+
+.card-container {
+  border: 1px solid $blackColor;
+  padding: 15px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  .card-icon {
+    // font-size: 28px;
+    // padding-right: 10px;
+    border: 1px solid black;
+    height: 40px;
+    width: 40px;
+    margin-right: 5px;
+  }
+  .top-row {
+    @include primary-row;
+  }
+  .bottom-row {
+    @include secondary-row;
+  }
+  .journey-amt {
+    color: $redColor;
+  }
+  .book-btn {
+    .btn {
+      background-color: $redColor;
+      color: $whiteColor;
+    }
+  }
+
+  &.multistop-detail {
+    background-color: gainsboro;
+    .journey-type,
+    .journey-amt,
+    .book-btn {
+      visibility: hidden;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+$headerHeight: 60px;
+$headerBgColor: #ffffff;
+
+.main {
+  height: 100vh;
+  width: 100vw;
+  .header-wrapper {
+    height: $headerHeight;
+    width: 100%;
+    background: $headerBgColor;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.19);
+    padding: 15px;
+    box-sizing: border-box;
+    z-index: 10;
+  }
+  .main-container {
+    height: calc(100% - #{$headerHeight});
+    width: 100%;
+    .route-wrapper {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container > * {
+  width: 100%;
+}
+
+.nav-pills {
+  border-bottom: 1px solid black;
+  & > li > a {
+    margin-right: 0px;
+    border: 1px solid black;
+    border-radius: 4px 4px 0 0;
+  }
+}
+.tab-content {
+  border: 1px solid black;
+  box-sizing: border-box;
+  padding: 10px;
+  border-top: none;
+}

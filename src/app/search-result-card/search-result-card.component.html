@@ -1,0 +1,35 @@
+<div class="card-container" [class.multistop-detail]="isMultiStopDetail">
+  <div class="card-icon">
+    <!-- <i class="fa fa-plane" aria-hidden="true"></i> -->
+  </div>
+  <div class="flight-details">
+    <div class="flight-name top-row">{{ config.name }}</div>
+    <div class="flight-number bottom-row">
+      {{ config.flightNo }}
+    </div>
+  </div>
+  <div class="origin-details">
+    <div class="origin-city top-row">{{ config.origin }}</div>
+    <div class="departure-time bottom-row">
+      {{ config.departureTime }}
+    </div>
+  </div>
+  <div class="destination-details">
+    <div class="destination-city top-row">
+      {{ config.destination }}
+    </div>
+    <div class="arrival-time bottom-row">
+      {{ config.arrivalTime }}
+    </div>
+  </div>
+  <div class="journey-details">
+    <div class="journey-duration top-row">
+      {{ getJourneyDuration(config) }}
+    </div>
+    <div class="journey-type bottom-row">Non stop</div>
+  </div>
+  <div class="journey-amt">&#8377; {{ config.price }}</div>
+  <div class="book-btn">
+    <button type="button" class="btn">Book</button>
+  </div>
+</div>

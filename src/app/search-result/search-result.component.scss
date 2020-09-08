@@ -1,0 +1,42 @@
+@import "./../../assets/styles/variables";
+
+.search-result-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  .search-heading {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    margin: 0;
+    padding: 10px 15px;
+    &-icon {
+      margin-right: 5px;
+      img {
+        height: 28px;
+        width: 28px;
+        &.return {
+          transform: rotate(-180deg);
+        }
+      }
+    }
+    &-title {
+      .title-label {
+        @include primary-row;
+      }
+      .title-description {
+        @include secondary-row;
+      }
+    }
+  }
+  .search-content {
+    margin: 0;
+    flex: 1;
+    overflow: auto;
+    .card-wrapper {
+      margin: 10px 0;
+    }
+  }
+}

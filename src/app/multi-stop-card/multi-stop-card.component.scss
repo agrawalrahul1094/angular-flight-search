@@ -1,0 +1,44 @@
+@import "./../../assets/styles/variables";
+
+.card-container {
+  border: 1px solid $blackColor;
+  padding: 15px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  .card-icon {
+    font-size: 28px;
+    padding-right: 10px;
+  }
+  .top-row {
+    @include primary-row;
+  }
+  .bottom-row {
+    @include secondary-row;
+  }
+  .journey-duration {
+    color: $greenColor;
+  }
+  .journey-amt {
+    color: $redColor;
+  }
+  .book-btn {
+    .btn {
+      background-color: $redColor;
+      color: $whiteColor;
+    }
+  }
+}
+
+.card-wrapper {
+  position: relative;
+  .layover-detail {
+    border: 1px dashed black;
+    background-color: white;
+    padding: 0px 15px;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+  }
+}

@@ -1,0 +1,47 @@
+<div class="card-container">
+  <div class="card-icon">
+    <i class="fa fa-plane" aria-hidden="true"></i>
+  </div>
+  <div class="flight-details">
+    <div class="flight-name top-row">Multiple</div>
+    <div class="flight-number bottom-row">
+      <a (click)="toggleDetails()"> {{ showDetails ? 'Hide Details' : 'Show Details'}}</a>
+    </div>
+  </div>
+  <div class="origin-details">
+    <div class="origin-city top-row">{{ config.cumulativeFlight.origin }}</div>
+    <div class="departure-time bottom-row">
+      {{ config.cumulativeFlight.departureTime }}
+    </div>
+  </div>
+  <div class="destination-details">
+    <div class="destination-city top-row">
+      {{ config.cumulativeFlight.destination }}
+    </div>
+    <div class="arrival-time bottom-row">
+      {{ config.cumulativeFlight.arrivalTime }}
+    </div>
+  </div>
+  <div class="journey-details">
+    <div class="journey-duration top-row">
+      {{ getJourneyDuration(config.cumulativeFlight) }}
+    </div>
+    <div class="journey-type bottom-row">Total duration</div>
+  </div>
+  <div class="journey-amt">&#8377; {{ config.cumulativeFlight.totalFare }}</div>
+  <div class="book-btn">
+    <button type="button" class="btn">Book</button>
+  </div>
+</div>
+<ng-container #detailContainer></ng-container>
+<ng-template #detailTemplate>
+  <div class="card-wrapper" *ngFor="let card of config.flights; let i = index;">
+    <app-search-result-card
+      [config]="card"
+      [isMultiStopDetail]="true"
+    ></app-search-result-card>
+    <div class="layover-detail" *ngIf="i < config.flights.length-1">
+      Layover time {{getLayoverTime(config.flights, i)}}
+    </div>
+  </div> </ng-template
+>

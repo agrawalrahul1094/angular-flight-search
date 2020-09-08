@@ -1,0 +1,24 @@
+.search-container {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  .search-from-wrapper {
+    height: 100%;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    padding: 15px;
+  }
+  .search-result-wrapper {
+    height: 100%;
+    border-left: 1px solid black;
+    padding: 0;
+    margin: 0;
+    .oneway-result-wrapper,
+    .return-result-wrapper {
+      padding: 0;
+      margin: 0;
+      height: 100%;
+    }
+  }
+}

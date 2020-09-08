@@ -1,0 +1,110 @@
+<div class="search-form-container">
+  <ul class="nav nav-pills" id="myTab" role="tablist">
+    <li class="nav-item active">
+      <a class="nav-link" id="oneway-tab" data-toggle="tab" href="#oneway" (click)="onTabClick(false)"
+        >One Way</a
+      >
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="return-tab" data-toggle="tab" href="#return" (click)="onTabClick(true)"
+        >Return</a
+      >
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade active in" id="oneway">
+      <ng-container *ngTemplateOutlet="flightSearchFormTemplate"></ng-container>
+    </div>
+    <div class="tab-pane fade" id="return">
+      <ng-container *ngTemplateOutlet="flightSearchFormTemplate"></ng-container>
+    </div>
+  </div>
+  <ng-template #flightSearchFormTemplate>
+    <form (ngSubmit)="onSearch($event)" #flightSearchForm="ngForm">
+      <div class="form-group">
+        <label for="origin">Origin City</label>
+        <input
+          class="form-control"
+          list="originList"
+          id="origin"
+          name="origin"
+          placeholder="Enter Origin City"
+          autocomplete="off"
+          required
+          [(ngModel)]="model.origin"
+        />
+        <datalist id="originList">
+          <option
+            *ngFor="let city of cityList; trackBy: trackByItems"
+            [value]="city"
+          ></option>
+        </datalist>
+      </div>
+
+      <div class="form-group">
+        <label for="destination">Destination City</label>
+        <input
+          class="form-control"
+          list="destinationList"
+          id="destination"
+          name="destination"
+          placeholder="Enter Destination City"
+          required
+          [(ngModel)]="model.destination"
+        />
+        <datalist id="destinationList">
+          <option
+            *ngFor="let city of cityList; trackBy: trackByItems"
+            [value]="city"
+          ></option>
+        </datalist>
+      </div>
+
+      <div class="form-group">
+        <label for="departure">Departure Date</label>
+        <input
+          type="date"
+          class="form-control"
+          id="departure"
+          name="departure"
+          placeholder="Departure Date"
+          required
+          [(ngModel)]="model.departure"
+        />
+      </div>
+
+      <div class="form-group" *ngIf="isReturnJourney">
+        <label for="return">Return Date</label>
+        <input
+          type="date"
+          class="form-control"
+          id="return"
+          name="return"
+          placeholder="Return Date"
+          required
+          [(ngModel)]="model.return"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="passenger-count">No. of Passengers</label>
+        <input
+          type="number"
+          min="1"
+          class="form-control"
+          id="passenger-count"
+          name="passengerCount"
+          placeholder="Select passengers"
+          required
+          [(ngModel)]="model.passengerCount"
+        />
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary" name="submit">
+          Search
+        </button>
+      </div>
+    </form>
+  </ng-template>
+</div>

@@ -1,0 +1,15 @@
+$greenColor: #28a745;
+$redColor: #dc3545;
+$whiteColor: #ffffff;
+$blackColor: #000000;
+$lightGreyColor: grey;
+
+@mixin primary-row {
+  color: $blackColor;
+  font-weight: 500;
+  font-size: 14px;
+}
+@mixin secondary-row {
+  color: $lightGreyColor;
+  font-size: 12px;
+}

@@ -1,0 +1,36 @@
+<div class="search-result-container">
+  <div class="search-heading row col-sm-12">
+    <div class="search-heading-icon">
+      <img
+        src="../../assets/images/airplane.svg"
+        alt="icon"
+        [class.return]="config.isReturnJourney"
+      />
+    </div>
+    <div class="search-heading-title">
+      <div class="title-label">
+        {{
+          config.journeyDetail.origin +
+            " to " +
+            config.journeyDetail.destination
+        }}
+      </div>
+      <div class="title-description">
+        <span> {{ config.result.multiStopFlights.length + config.result.nonStopFlights.length + " flights found " }}</span>
+        <span>
+          {{ getFormatedDate(config.journeyDetail.date) }}
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="search-content row col-sm-12">
+    <div class="cards">
+      <div class="card-wrapper" *ngFor="let card of config.result.nonStopFlights">
+        <app-search-result-card [config]="card"></app-search-result-card>
+      </div>
+      <div class="card-wrapper" *ngFor="let card of config.result.multiStopFlights">
+        <app-multi-stop-card [config]="card"></app-multi-stop-card>
+      </div>
+    </div>
+  </div>
+</div>

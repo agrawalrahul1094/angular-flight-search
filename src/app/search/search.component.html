@@ -1,0 +1,21 @@
+<div class="search-container row col-sm-12">
+  <div class="search-from-wrapper col-sm-12 col-md-3">
+    <app-search-form (search)="onSearch($event)"></app-search-form>
+  </div>
+  <div class="search-result-wrapper col-sm-12 col-md-9">
+    <ng-container #searchResultContainer *ngIf="searchResult then resultTemplate; else resultPlaceholderTemplate;"></ng-container>
+  </div>
+</div>
+
+<ng-template #resultTemplate>
+  <div class="oneway-result-wrapper col-sm-12" [class.col-md-6]="isReturnJourney()">
+    <app-search-result [config]="getOnewayConfig()"></app-search-result>
+  </div>
+  <div class="return-result-wrapper col-sm-12 col-md-6" *ngIf="isReturnJourney()">
+    <app-search-result [config]="getReturnConfig()"></app-search-result>
+  </div>
+</ng-template>
+
+<ng-template #resultPlaceholderTemplate>
+  Enter details to Search Flights!
+</ng-template>
